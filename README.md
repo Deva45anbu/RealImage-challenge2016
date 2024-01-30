@@ -36,8 +36,79 @@ npm start
 ### File Structure
 1. index.js: Main application file.
 2. cities.csv: CSV file containing geographical data.
-3. README.md: Project documentation.  
+3. README.md: Project documentation. 
 
+
+### Sample Inputs/Outputs:
+> **_NOTE:_**  List of choices is prompted to perform actions based on user input and continues to prompt the user until the program is exited.
+
+- List of choices
+```
+? Select one of the below choices :
+ (Use arrow keys)
+> Create a new distributor
+  Create a sub distributor
+  Check permission for a distributor
+  View Distributors information
+  Exit the program
+
+
+```
+- Choosing "Create a new distributor"
+```
+? Enter distributor name: 
+ Distributor1
+? Enter the regions you want to include for this distributor :
+ India,Japan,China
+? Enter the regions you want to exclude for this distributor :
+ Tamil nadu-india,Maharashtra-India
+
+```
+
+- Choosing "Check permission for a distributor"
+```
+? Select one of the below choices :
+ Check permission for a distributor
+? Enter distributor name that need to checked:
+ Distributor1
+? Enter regions that need to checked:
+ India,gujarat-india,chennai-tamil nadu-india,shingu-wakayama-japan
+Check Permssion Result : [
+  'DISTRIBUTOR1 have access to INDIA',
+  'DISTRIBUTOR1 have access to GUJARAT-INDIA',
+  'DISTRIBUTOR1 do not have access to CHENNAI-TAMIL NADU-INDIA',
+  'DISTRIBUTOR1 have access to SHINGU-WAKAYAMA-JAPAN'
+]
+```
+- Choosing "Create a sub distributor"
+```
+? Select one of the below choices :
+ Create a sub distributor
+? Enter distributor name: 
+ Distributor2
+? Enter the regions you want to include for this distributor :
+ india
+? Enter the regions you want to exclude for this distributor :
+ gujarat-india
+? Enter the name of the parent distributor :
+ Distributor1
+```
+- Choosing "Check permission for a distributor"
+```
+? Select one of the below choices :
+ Check permission for a distributor
+? Enter distributor name that need to checked:
+ Distributor2
+? Enter regions that need to checked:
+ chennai-tamil nadu-india,gujarat-india,uttar pradesh-india,bihar-india,new zealand
+Check Permssion Result : [
+  'DISTRIBUTOR2 do not have access to CHENNAI-TAMIL NADU-INDIA',
+  'DISTRIBUTOR2 do not have access to GUJARAT-INDIA',
+  'DISTRIBUTOR2 have access to UTTAR PRADESH-INDIA',
+  'DISTRIBUTOR2 have access to BIHAR-INDIA',
+  'DISTRIBUTOR2 do not have access to NEW ZEALAND'
+]
+```
 ## Contributing 
 
 Pull requests are welcome. For major changes, please open an issue first
