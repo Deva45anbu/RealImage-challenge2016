@@ -1,5 +1,5 @@
 {
-  "name": "solution-1",
+  "name": "challenge2016-solution",
   "version": "1.0.0",
   "description": "Real Image Challenge 2016 : This project is a simple Distributor Management System that allows users to create distributors, sub-distributors, check permissions, and view distributor’s information.",
   "main": "index.js",
