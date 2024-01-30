@@ -13,8 +13,7 @@ const port = 3001;
 let distributorInformation = [];
 let geoData
 
-// The main function that initializes the program.
-// Reads CSV file, initializes geoData, asks questions to the use
+// The main function that initializes the program, reads CSV file, initializes geoData, asks questions to the use
 async function main() {
     try {
         const csvFilePath = '\cities.csv';
@@ -88,8 +87,7 @@ async function parseCSVFile(csvFilePath) {
     })
 }
 
-// Asynchronous function to prompt the user with a list of choices and perform actions based on user input.
-// Continues to prompt the user until the program is exited.
+// askNextQuestion() prompt the user with a list of choices and perform actions based on user input and continues to prompt the user until the program is exited.
 async function askNextQuestion() {
     while (true) {
         try {
@@ -214,7 +212,6 @@ async function askNextQuestion() {
 
 }
 
-// Validate distributor data to ensure it meets the required criteria.
 // validateDistributorData function checks if the distributor name is not empty, unique, and if include and exclude regions are valid based on the geoData array.
 function validateDistributorData(data) {
     try {
@@ -243,9 +240,7 @@ function validateDistributorData(data) {
 }
 
 
-// Validate sub-distributor data to ensure it meets the required criteria.
-// This function checks if the distributor name is not empty, unique, if include and exclude regions are valid based on the geoData array,
-// and if the parent distributor exists. If validation passes, it also checks permissions with the parent distributor.
+// Validate sub-distributor data to ensure it meets the required criteria
 function validateSubDistributorData(data) {
     try {
         let errorMsg = []
@@ -311,7 +306,6 @@ function validateDistributorName(distributorName) {
 }
 
 
-// Validate regions based on the provided data.
 // validateRegions function checks if the specified regions exist in the geoData array(csv file data).
 function validateRegions(data) {
     try {
@@ -361,7 +355,6 @@ function validateRegions(data) {
     }
 }
 
-// Create a new distributor object based on the provided data.
 // createNewDistributor function constructs a new distributor object with the distributorName, include regions, exclude regions and parent for sub distributor object.
 function createNewDistributor(data, parent) {
     try {
@@ -377,7 +370,6 @@ function createNewDistributor(data, parent) {
     }
 }
 
-// Retrieve distributor information based on the distributorName.
 // getDistributorData function searches for the distributor with the specified name in the distributorInformation array.
 function getDistributorData(distributorName) {
     try {
@@ -391,7 +383,6 @@ function getDistributorData(distributorName) {
     }
 }
 
-// Validate data for checking permissions.
 // validateCheckPermissionData function checks if the provided region data for checking permissions of the distributor is valid.
 function validateCheckPermissionData(data) {
     try {
@@ -414,8 +405,7 @@ function validateCheckPermissionData(data) {
 
 }
 
-/* Check permission for a distributor based on the provided testData.
- checkPermission function evaluates whether a distributor has access to specified regions based on the testData.*/
+// checkPermission function evaluates whether a distributor has access to specified regions based on the testData.
 function checkPermission(distributorName, testData, origin) {
     try {
         let validationResult = [], errorMsg = [];
@@ -503,8 +493,6 @@ function displayDistributorInformation() {
         console.log("Error in displayDistributorInformation()", error)
     }
 }
-
-
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
